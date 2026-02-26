@@ -16,13 +16,16 @@ main {
 
 .form {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 12px;
   margin-bottom: 25px;
-  align-items: center;
 }
 
 .form input[type="text"] {
   flex-grow: 1;
+  min-width: 250px;
+
   padding: 12px 15px;
   font-size: 16px;
   line-height: 20px;
@@ -37,7 +40,7 @@ main {
   box-shadow: 0 0 5px rgba(51, 102, 255, 0.5);
 }
 
-.form button {
+.form button[type="submit"] {
   padding: 12px 26px;
   font-size: 16px;
   line-height: 20px;
@@ -52,7 +55,7 @@ main {
   min-width: 120px;
 }
 
-.form button:hover:not(.hidden) {
+.form button[type="submit"]:hover:not(.hidden) {
   background-color: #254eda;
 }
 
@@ -60,28 +63,45 @@ main {
   display: block;
   margin: 25px auto 0;
   min-width: 140px;
+  padding: 12px 26px;
+  font-size: 16px;
+  line-height: 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: #3366ff;
+  color: white;
+  transition: background-color 0.3s ease;
 }
 
 .load-more.hidden {
   display: none !important;
 }
 
+.load-more:hover:not(.hidden) {
+  background-color: #254eda;
+}
+
+
 .gallery {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
 }
 
 .gallery li {
   background-color: #f5f7fa;
-  border-radius: 8px;
   box-shadow: 0 1px 4px rgb(0 0 0 / 0.1);
+  border: 1px solid #808080;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+  width: calc((100% - 48px) / 3);
 }
 
 .gallery img {
@@ -92,25 +112,40 @@ main {
 }
 
 .info {
+  height: 48px;
   display: flex;
+  align-items: center;
   justify-content: space-around;
-  padding: 8px 10px;
-  font-size: 12px;
-  color: #5a5a5a;
-  background-color: #ffffff;
+  padding-left: 20px;
+  padding-right: 25px;
+  box-sizing: border-box;
+
+  background-color: #fff;
   border-top: 1px solid #ddd;
-  user-select: none;
 }
 
+.info p {
+  flex: 1;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-weight: 600;
+  color: #444;
+  font-size: 12px;
+  line-height: 1.2;
+}
 
 .info span {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  font-size: 12px;
   font-weight: 600;
   color: #444;
 }
-
 
 .loader {
   text-align: center;
